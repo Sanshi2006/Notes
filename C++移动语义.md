@@ -219,5 +219,35 @@ void func(std::vector<T> &&v){
 
 
 
-# 九.完美转发
+# 九.完美转发`std::forward<T>`
+
+用处是当一个函数把参数传递为另一个函数时，保留参数的原生属性
+
+例：
+
+```cpp
+void target(int&& x) {
+    return;
+}
+
+template<typename T>
+void wrapper(T&& param) { 
+    target(param); //报错
+}
+
+int main() {
+    wrapper(10); 
+}
+```
+
+在这个例子中，`10`确实是右值，但是在`wrapper`函数中，`param`是左值，无法进行`&&`的右值绑定，于是会报错
+
+为了解决这个问题，我们引入了`std::forward<T>`，它能根据`T`推导的结果，决定把`param`转化为左值或者是右值，于是就可以：
+
+```cpp
+template<typename T>
+void wrapper(T&& param) {
+    target(std::forward<T>(param)); 
+}
+```
 
