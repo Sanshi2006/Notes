@@ -59,7 +59,7 @@ int main(){
 
 ## 2. `unique_ptr`的定义方式
 
-使用`std::unique_ptr<类名> 变量名 = std::make_unique_ptr<类名>();` 创建
+使用`std::unique_ptr<类名> 变量名 = std::make_unique<类名>();` 创建
 
 
 
