@@ -19,12 +19,12 @@
 必要格式如下：
 
 ```txt
-cmake_minimumu_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.10)
 
 
 project(填项目名)
 
-add_exectutable(项目名 main.cpp ……)
+add_executable(项目名 main.cpp ……)
 
 ```
 
